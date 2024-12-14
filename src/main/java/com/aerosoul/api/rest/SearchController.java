@@ -18,7 +18,7 @@ import com.aerosoul.api.model.ApiResponse;
 
 @RestController
 @RequestMapping("/api")
-@CrossOrigin(origins = { "http://localhost:4200", "http://example.com" }, allowedHeaders = "*", methods = {
+@CrossOrigin(origins = { "http://localhost:4200", "https://harshbagadia747.github.io" }, allowedHeaders = "*", methods = {
 		RequestMethod.GET, RequestMethod.POST })
 public class SearchController {
 
