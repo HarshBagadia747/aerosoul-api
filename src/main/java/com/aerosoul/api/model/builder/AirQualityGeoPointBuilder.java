@@ -77,21 +77,29 @@ public class AirQualityGeoPointBuilder {
 			JSONObject iaqiJson = aqiJson.getJSONObject("iaqi");
 			IAQI iaqi = new IAQI();
 
-			AQIValue pm10 = new AQIValue();
-			pm10.setV(iaqiJson.getJSONObject("pm10").optDouble("v", -1));
-			iaqi.setPm10(pm10);
+			if (iaqiJson.has("pm10")) {
+				AQIValue pm10 = new AQIValue();
+				pm10.setV(iaqiJson.getJSONObject("pm10").optDouble("v", -1));
+				iaqi.setPm10(pm10);
+			}
 
-			AQIValue pm25 = new AQIValue();
-			pm25.setV(iaqiJson.getJSONObject("pm25").optDouble("v", -1));
-			iaqi.setPm25(pm25);
+			if (iaqiJson.has("pm25")) {
+				AQIValue pm25 = new AQIValue();
+				pm25.setV(iaqiJson.getJSONObject("pm25").optDouble("v", -1));
+				iaqi.setPm25(pm25);
+			}
 
-			AQIValue o3 = new AQIValue();
-			o3.setV(iaqiJson.getJSONObject("o3").optDouble("v", -1));
-			iaqi.setO3(o3);
+			if (iaqiJson.has("o3")) {
+				AQIValue o3 = new AQIValue();
+				o3.setV(iaqiJson.getJSONObject("o3").optDouble("v", -1));
+				iaqi.setO3(o3);
+			}
 
-			AQIValue no2 = new AQIValue();
-			no2.setV(iaqiJson.getJSONObject("no2").optDouble("v", -1));
-			iaqi.setNo2(no2);
+			if (iaqiJson.has("no2")) {
+				AQIValue no2 = new AQIValue();
+				no2.setV(iaqiJson.getJSONObject("no2").optDouble("v", -1));
+				iaqi.setNo2(no2);
+			}
 
 			geoPoint.setIaqi(iaqi);
 		}
